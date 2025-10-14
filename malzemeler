@@ -1,0 +1,28 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Web;
+
+namespace LibraryApp
+{
+    public class Malzemeler 
+    {
+        int malzemeSayi;
+        string malzemeAdi;
+
+        public void IsimGetir(int sayi, string isim)
+        {
+            this.malzemeSayi = sayi;
+            this.malzemeAdi = isim;
+            Console.WriteLine($"malzeme isimleri {isim} ve malzeme sayisi {sayi} dır");
+        }
+
+        public string KutuphaneIsimDonder(string kutisim)
+        {
+            malzemeAdi = kutisim;
+            return malzemeAdi;
+        }
+    }
+}
