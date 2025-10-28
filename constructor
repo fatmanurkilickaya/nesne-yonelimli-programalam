@@ -1,0 +1,49 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            //Insan insan = new Insan("kılıçkaya");
+            //insan.IsimGetir();
+            Insan insan2 = new Insan();
+            insan2.IsimGetir();
+        }
+    }
+
+    public class Insan
+    {
+        string soyad;
+        string ad ;
+        public Insan(string babasoyad) // 1 parametreli constructor
+        {
+            this.soyad = babasoyad;
+        }
+        public Insan(string babasoyad, string isim)// 2 parametreli constructor
+        {
+            this.soyad = babasoyad;
+            this.ad = isim;
+        }
+        public Insan()// parametresiz constructor
+        {
+            
+        }
+        public Insan(string babasoyad, string isim, int no) // 3 parametreli constructor
+        {
+            this.soyad = babasoyad;
+            this.ad = isim;
+        }
+        public void IsimGetir()
+        {
+           
+            Console.WriteLine($"ad: {ad}, soyisim: {soyad}");
+            Console.ReadKey();
+        }
+    }
+}
