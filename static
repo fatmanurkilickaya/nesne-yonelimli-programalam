@@ -1,0 +1,44 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    public class Program
+    {
+        static void Main(string[] args)
+        {
+            FaktoriyelFonk fakFonk = new FaktoriyelFonk();
+            fakFonk.NesnelFonksiyon(7);
+
+            FaktoriyelFonk.StaticFonksiyon(7);
+
+        }
+    }
+
+    public class FaktoriyelFonk
+    {
+        public static int StaticFonksiyon(int deger)
+        {
+            int carpim = 1;
+            for (int i = 1; i <= deger; i++)
+                carpim = carpim * i;
+            return carpim;
+
+        }
+        public int NesnelFonksiyon(int deger)
+        {
+            int carpim = 1;
+            for (int i = 1; i <= deger; i++)
+               carpim = carpim * i;
+            return carpim;
+
+        }
+    }
+
+ 
+}
