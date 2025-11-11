@@ -1,0 +1,61 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Person p = new  Person("Kılıçkaya");
+            p.Name = "Fatmanur";
+            p.Tckimlik = 2222;
+            Console.WriteLine($"Adı: {p.Name}");
+            Console.WriteLine($"Soyad: {p.Surname}");
+            Console.WriteLine($"TcKimlik: {p.Tckimlik}");
+            Console.ReadKey();
+
+
+        }
+    }
+
+    public class Person
+    {
+        private string _surname;
+        private int _tckimlik;
+
+        public Person(string surname)
+        {
+            this._surname = surname;
+        }
+
+        public string Name { get; set; }
+        public int Tckimlik
+        {
+            set { _tckimlik = value; }
+            get {
+                if (_tckimlik % 2 == 0)
+                    return _tckimlik;
+                else return 0;
+            }
+        }
+        public string Surname
+        {
+            get
+            {
+                string sn = _surname.Substring(0, 1);
+                for (int i = 0; i < sn.Length-1 ; i++) 
+                    sn += "*";
+                sn += _surname.Substring(_surname.Length - 1);
+                return sn;
+
+            }
+        }
+        
+    }
+
+
+}
