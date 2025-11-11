@@ -1,0 +1,61 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+           Box box1 = new Box();
+           Box box2 = new Box();
+           box1.setGenislik(3);
+           box2.setGenislik(4);
+           box1.setDerinlik(5);
+            box2.setDerinlik(6);
+            box1.setUzunluk(7);
+            box2.setUzunluk(8);
+
+         
+           double deger = box1.getDeger();
+            Console.WriteLine(deger);
+
+        }
+    }
+    public class Box
+    {
+        public int derinlik;
+        public int yukseklik;
+        public int genislik;
+
+        public int getDeger()
+        {
+            return derinlik*yukseklik*genislik;
+        }
+        public void setUzunluk(int x)
+        {
+            yukseklik = x;
+        }
+        public void setDerinlik(int y)
+        {
+            derinlik = y;
+        }
+        public void setGenislik(int z)
+        {
+            genislik = z;
+        }
+        public static Box operator +(Box b, Box c)
+        {
+            Box box = new Box();
+            box.genislik = b.genislik + c.genislik;
+            box.yukseklik = b.yukseklik+ c.yukseklik;
+            box.derinlik = b.derinlik + c.derinlik;
+            return box;
+
+        }
+    }
+   
+}
