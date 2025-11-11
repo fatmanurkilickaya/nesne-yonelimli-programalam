@@ -1,0 +1,42 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Calculater cl = new Calculater(10, 5);
+            cl.Print();
+            int sonuc2 = -cl;
+            Console.WriteLine("iki sayı arasındaki fark" + sonuc2);
+            Console.ReadKey();
+        }
+    }
+
+    public class Calculater
+    {
+        public int sayi1, sayi2;
+        public Calculater(int num1, int num2) 
+        { 
+            this.sayi1 = num1;
+            this.sayi2 = num2;
+        } 
+        
+        public static int operator -(Calculater c)
+        {
+            int sonuc = c.sayi1- c.sayi2;
+            return sonuc;
+        }
+        public void Print()
+        {
+            Console.WriteLine("sayi1"+ " " + sayi1);
+            Console.WriteLine($"sayi2 {sayi2}");
+        }
+
+    }
+}
