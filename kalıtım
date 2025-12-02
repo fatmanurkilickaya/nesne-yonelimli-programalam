@@ -1,0 +1,71 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Kediler kediler = new Kediler();
+          
+
+            Araba araba = new Araba();
+            araba.ArabaKapat();
+
+            Console.ReadKey();
+        }
+    }
+    //kompozisyon başlangıç
+    public class Motor
+    {
+        public void MotorAc()
+        {
+            Console.WriteLine("Motor çalıştırıldı");
+
+        }
+        public void MotorKapat()
+        {
+            Console.WriteLine("Motor kapatıldı");
+        }
+    }
+
+    public class Araba
+    {
+       Motor motor = new Motor(); // komposizyon çalışır
+       public void ArabayiCalistir()
+        {
+            motor.MotorAc();
+            Console.WriteLine("Araba çalıştır");
+        }
+
+        public void ArabaKapat()
+        {
+            motor.MotorKapat();
+            Console.WriteLine("araba durduruldu");
+        }
+
+    }  //kompozisyon bitiş
+
+    public class Hayvanlar
+    {
+        public void GetTur()
+        {
+            Console.WriteLine("Türler belirlendi");
+        }
+    }
+
+    public class Kediler : Hayvanlar
+    {
+        public Kediler()
+        {
+            Console.WriteLine("kedinin türü belirlendi");
+        }
+    }
+   
+
+    
+}
