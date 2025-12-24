@@ -1,0 +1,97 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Memur memur = new Memur("FATMANUR", "KILIÇKAYA","BM", 1000);
+            Console.WriteLine(memur);
+
+            Console.WriteLine(memur.Getmaas());
+            memur.ZamYap();
+
+            UstDuzey ud = new UstDuzey("Hakan","şen","yonetici", 2000);
+            Console.WriteLine(ud);
+            ud.ZamYap();
+            ud.Getmaas();
+
+            Console.ReadKey();
+
+        }
+    }
+
+    public abstract class Calisanlar
+    {
+        private string isim, soyisim, unvan;
+        private double maas;
+
+        protected void SetBilgiler(string name, string surname, string unvan)
+        {
+            this.isim = name;
+            this.soyisim = surname;
+            this.unvan = unvan; 
+        }
+        public double Getmaas()
+        {
+            return maas;
+        }
+        public void SetMaas(double maas)
+        {
+            this.maas = maas;
+        }
+        public abstract void ZamYap();
+        public abstract void ZamYap(double zamOrani);
+
+        public override string ToString()
+        {
+            string bilgiler = String.Format("isim: {0}\n " +
+                "soyisim:{1} \n unvan: {2} \n maas {3}", isim, soyisim,
+                unvan, maas);
+            return bilgiler;
+        }
+    }
+
+    public class Memur :Calisanlar 
+    { 
+        public Memur(string isim, string soyisim, string unvan, double baslangicmaas)
+        {
+            this.SetBilgiler(isim, soyisim, unvan);
+            this.SetMaas(baslangicmaas);
+        }
+
+        public override void ZamYap()
+        {
+            base.SetMaas(Getmaas() * 0.20);
+        }
+
+        public override void ZamYap(double zamOrani)
+        {
+            base.SetMaas(Getmaas() * zamOrani);
+        }
+    }
+
+    public class UstDuzey : Calisanlar
+    {
+        public UstDuzey(string isim, string soyisim, string unvan, double baslangicmaas)
+        {
+            this.SetBilgiler(isim, soyisim, unvan);
+            this.SetMaas(baslangicmaas);
+        }
+
+        public override void ZamYap()
+        {
+            base.SetMaas(Getmaas() * 0.10);
+        }
+
+        public override void ZamYap(double zamOrani)
+        {
+            base.SetMaas(Getmaas() * zamOrani+ 0.15);
+        }
+    }
+}
